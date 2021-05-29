@@ -11,6 +11,6 @@ export default function one(req: VercelRequest, res: VercelResponse) {
         console.timeEnd('mySlowFunction');
     }
 
-    mySlowFunction(15); // higher number => more iterations => slower
+    mySlowFunction(10); // higher number => more iterations => slower
     res.json({ success: true })
 }
