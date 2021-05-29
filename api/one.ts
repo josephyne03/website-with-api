@@ -1,6 +1,7 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default function one(req: VercelRequest, res: VercelResponse) {
-    // fetch()
-    res.json({ hi: "hello" })
+    fetch("https://website-with-api.vercel.app/api/one").then(() => {
+        res.json({ hi: "hello" })
+    })
 }
