@@ -9,7 +9,7 @@ export default function one(req: VercelRequest, res: VercelResponse) {
             return 1;
         else return fibo(n - 2) + fibo(n - 1);
     }
-    console.log(fibo(20))
+    console.log(fibo(10))
     res.json({
         success: true,
         freemem: os.freemem(),
