@@ -1,5 +1,6 @@
 import { VercelRequest, VercelResponse } from "@vercel/node";
 const fetch = require("node-fetch")
+const os = require("os")
 
 export default function one(req: VercelRequest, res: VercelResponse) {
     function mySlowFunction(baseNumber) {
@@ -12,5 +13,12 @@ export default function one(req: VercelRequest, res: VercelResponse) {
     }
 
     mySlowFunction(10); // higher number => more iterations => slower
-    res.json({ success: true })
+    res.json({
+        success: true,
+        freemem: os.freemem(),
+        totalmem: os.totalmem(),
+        uptime: os.uptime(),
+        release: os.release(),
+        platform: os.platform(),
+    })
 }
