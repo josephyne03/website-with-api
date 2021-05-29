@@ -3,16 +3,13 @@ const fetch = require("node-fetch")
 const os = require("os")
 
 export default function one(req: VercelRequest, res: VercelResponse) {
-    function mySlowFunction(baseNumber) {
-        console.time('mySlowFunction');
-        let result = 0;
-        for (var i = Math.pow(baseNumber, 7); i >= 0; i--) {
-            result += Math.atan(i) * Math.tan(i);
-        };
-        console.timeEnd('mySlowFunction');
+    function fibo(n) {
+        console.log(n)
+        if (n < 2)
+            return 1;
+        else return fibo(n - 2) + fibo(n - 1);
     }
-
-    mySlowFunction(10); // higher number => more iterations => slower
+    console.log(fibo(20))
     res.json({
         success: true,
         freemem: os.freemem(),
